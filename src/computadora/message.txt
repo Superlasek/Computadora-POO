@@ -1,0 +1,41 @@
+public void agregarComponentes(){//OPCION 5
+        int opc;
+        System.out.println("0. Ninugno");
+        System.out.println("1. Procesador");
+        System.out.println("2. Memoria");
+        System.out.println("3. Unidad de almacenamiento");
+        System.out.println("Selecciona un opcion : ");
+        opc = entrada.nextShort();
+        switch (opc){
+            case 0:
+                System.out.println("No selecciono ninguno");
+            case 1://procesador
+                if (pc.getProcesador()==null){
+                    System.out.println("Dame el numero de nucleos de tu procesador ");
+                    int nucleos= entrada.nextInt();
+                    System.out.println("Dame la velocidad de tu procesador");
+                    double velocidad=entrada.nextDouble();
+                    procesador = new CPU(nucleos,velocidad);
+                    pc.setProcesador(procesador);     
+                }else System.out.println("Ya cuenta con ese componente");
+            case 2://agregar componentes a memoria capacidad int y tipo string 
+                if(pc.getMem()==null){
+                    System.out.println("Dame la capacidad de la memoria");
+                    int capacidad=entrada.nextInt();
+                    System.out.println("Dame el tipo de memoria");
+                    String tipo=entrada.next();
+                    mem = new Memoria(capacidad,tipo);
+                    pc.setMem(mem);
+                }else System.out.println("Ya existe este componente");
+            case 3:
+                if (pc.getUa()==null){
+                    System.out.println("Dame la capacidad de tu unidad de almacenamiento");
+                    int capacidad = entrada.nextInt();
+                    System.out.println("Dame el tipo de unidad de almacenamiento ");
+                    String tipo=entrada.next();
+                    ua = new UnidadDeAlmacenamiento(capacidad,tipo);
+                    pc.setUa(ua);
+                }  else System.out.println("Ya existe este componente ");
+                
+                }System.out.println(pc);
+        }
